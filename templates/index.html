@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <div class ="container">
+        <img src="{% static 'images/pyzza.png' %}" alt="50" height="300"/>
+
+        {% if user.anonymous %}
+          <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+        {% else %}
+          <div class="alert alert-primary" role="alert">
+              <h2>Seja muito Bem Vindo! {{ user.get_full_name }}</h2>
+          </div>
+          <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+{% endblock %}
+

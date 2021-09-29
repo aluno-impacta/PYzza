@@ -175,8 +175,63 @@ class RepresentanteComercial(models.Model):
 
 
 
+#HTML Templates no Django
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Pyzza</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <h1>Index</h1>
+
+    <img src="{% static 'images/pyzza.png' %}"/>
+
+    <h2>{{ Curso }}</h2>
+
+</body>
+</html>
+
+obs: No html chamamos a chave feita na views assim: 
+{{ Curso }}
+
+obs: Na views.,py podemos difinir alguns comandos para aparecer no frontend
+
+from django.shortcuts import render
+
+def index(request):
+        context = {
+            'Curso': 'WEB com Django Rest'
+        }
+        return render(request, 'index.html', context)
 
 
+#Settings para STATIC
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#Configurando o css
+
+-> Crie um diretório static na aplicação e nele crie um diretorio css e dentro de css um arquivo estilos.css
+
+
+=> Usando redirect e configurando no settings
+
+LOGOUT_REDIRECT_URL = 'index'
+
+->usuario pyzzaolo
+email: pyzzaolo@gmail.com
+senha: pyzza
+Primeiro nome: Hariel
+Segundo nome: Almeida Junior
+
+->Superuser
+usuario: thiago
+email: pyzza@hotmail.com
+senha: pyzza
 
 
 

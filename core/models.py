@@ -1,5 +1,9 @@
 from django.db import models
 import uuid
+from django.db.models import Avg
+
+import core.models
+
 
 class Base(models.Model):
     criacao = models.DateTimeField(auto_now_add=True)
@@ -39,7 +43,7 @@ class Fornecedor(Base):
         unique_together = ('empresa', 'cnpj', 'telefone', 'email',)
 
 
-class SituacaoEstoque(models.Model):
+class SituacaoEstoque(Base):
     pass
 
 

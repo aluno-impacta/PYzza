@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <form class="form-signin" method="post" autocomplete="off">
+        {% csrf_token %}
+        <h1 class="h3 mb-3 font-weight-normal">Acesso à PYzza!</h1>
+
+        <img src="{% static 'images/pizza.jpeg.jpeg' %}" alt="200" height="200"/>
+
+        <label for="username" class="sr-only">Email</label>
+        <input type="email" id="username" name="username" class="form-control" placeholder="Informe seu e-mail" required autofocus>
+
+        <label for="password" class="sr-only">Senhal</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Informe sua senha" required autofocus>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; {% now 'Y' %}</p>
+    </form>
+{% endblock %}
+
+
